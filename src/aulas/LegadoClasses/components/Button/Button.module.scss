@@ -1,0 +1,30 @@
+.button-container {
+  display: inline-block;
+}
+
+.button-container:disabled{
+  pointer-events: none;
+  cursor: not-allowed;
+}
+
+
+.button {
+  padding: 8px;
+  border-radius: 5px;
+  font-family: "Courier New", Courier, monospace;
+  background-color: #00000000;
+  color: #eee;
+  border: 1px solid #eee;
+  transition: all .5s;
+}
+
+.button:hover{
+  background-color: #eee;
+  color: #000;
+}
+
+.button:disabled {
+  background-color: #777;
+  color: #bebebe;
+  border: none;
+}

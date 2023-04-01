@@ -1,60 +1,53 @@
-import { Component } from "react";
+import { useEffect, useState } from "react";
 import style from "./Home.module.scss";
 import { Posts } from "../../components/Posts";
 import { loadPosts } from "../../utils/load-posts";
 import { Button } from "../../components/Button";
 import { TextFieldSearch } from "../../components/TextFieldSearch";
 
-class Home extends Component {
-  state = {
-    posts: [],
-    allPosts: [],
-    page: 0,
-    postsPerPage: 8,
-    postQuantity: 0,
-    searchActive: false,
-    searchValue: "",
-  };
+export const Home = ({}) => {
+  const [posts, setPosts] = useState([]);
+  const [page, setPage] = useState(1);
+  const [postsPerPage, setPostsPerPage] = useState(8);
+  const [postQuantity, setPostQuantity] = useState(0);
+  const [searchActive, setSearchActive] = useState(false);
+  const [searchValue, setSearchValue] = useState("");
+  const [correspondedPosts, setCorrespondedPosts] = useState([]);
+  const noData = page * postsPerPage >= postQuantity;
 
-  componentDidMount() {
-    this.loadPosts();
-  }
+  useEffect(() => {
+    handleLoadPosts();
+  }, []);
 
-  loadPosts = async () => {
-    const { page, postsPerPage } = this.state;
+  useEffect(() => {
+    handleLoadPosts();
+    scrollToTop();
+  }, [page])
+
+  const handleLoadPosts = async () => {
     const postsAndPhotos = await loadPosts(page, postsPerPage);
 
-    let updatedPostList = [...this.state.posts];
-    updatedPostList.unshift(...postsAndPhotos.posts);
+    let updatedPostList = [...postsAndPhotos.posts, ...posts];
 
-    this.setState({
-      postQuantity: postsAndPhotos.postQuantity,
-      posts: updatedPostList,
-    });
+    if (postsAndPhotos.postQuantity > postQuantity) {
+      setPostQuantity(postsAndPhotos.postQuantity);
+    }
+    setPosts(updatedPostList);
   };
 
-  loadMorePosts = () => {
-    const { page } = this.state;
-
+  const loadMorePosts = () => {
     let nextPage = page + 1;
 
-    this.setState({ page: nextPage }, () => {
-      this.loadPosts();
-      this.scrollToTop();
-    });
+    setPage(nextPage);
   };
 
-  scrollToTop = () => {
+  const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
-  handleSearch = (e) => {
-    const { posts } = this.state;
+  const handleSearch = (e) => {
     const { value } = e.target;
     let responseSearch = [];
-
-    //(post.body && post.body.search(new RegExp(`[${value}]`, "g")) !== -1) ||
-    //(post.title && post.title.search(new RegExp(`[${value}]`, "g")) !== -1)
 
     posts.forEach((post, i) => {
       if (
@@ -69,33 +62,23 @@ class Home extends Component {
 
     responseSearch = posts.filter((post) => post.inSearch);
 
-    this.setState({
-      searchValue: value,
-      correspondedPosts: responseSearch,
-      searchActive: true,
-    });
+    setSearchValue(value);
+    setCorrespondedPosts(responseSearch);
+    setSearchActive(true);
   };
 
-  render() {
-    const { posts, page, postsPerPage, searchActive } = this.state;
-    const noData = page * postsPerPage >= this.state.postQuantity;
-
-    return (
-      <div className={style.container}>
-        <TextFieldSearch
-          value={this.state.searchValue}
-          onChange={this.handleSearch}
-        />
-        <Posts posts={searchActive ? this.state.correspondedPosts : posts} />
-        <Button
-          disabled={noData}
-          label={"carregar mais posts..."}
-          onClick={this.loadMorePosts}
-          extraStyles={{ marginTop: "10px" }}
-        />
-      </div>
-    );
-  }
-}
+  return (
+    <div className={style.container}>
+      <TextFieldSearch value={searchValue} onChange={handleSearch} />
+      <Posts posts={searchActive ? correspondedPosts : posts} />
+      <Button
+        disabled={noData}
+        label={"carregar mais posts..."}
+        onClick={loadMorePosts}
+        extraStyles={{ marginTop: "10px" }}
+      />
+    </div>
+  );
+};
 
 export default Home;

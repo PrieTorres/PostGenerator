@@ -1,0 +1,18 @@
+.container {
+  display: block;
+  background: transparent;
+  padding: 15px;
+}
+
+.input {
+  border: none;
+  border-bottom: 1px solid #eee;
+  padding: 5px;
+  background: transparent;
+  color: #eee;
+}
+
+.input:focus{
+  outline: none;
+  border-bottom: 1px solid #fff;
+}
