@@ -68,7 +68,7 @@ export const Home = ({}) => {
   };
 
   return (
-    <div className={style.container}>
+    <div className={style.container} data-testid="home-page">
       <TextFieldSearch value={searchValue} onChange={handleSearch} />
       <Posts posts={searchActive ? correspondedPosts : posts} />
       <Button

@@ -17,5 +17,5 @@ export const loadPosts = async (page = 0, postPerPage = 8) => {
     return { ...postJson[i], photo }
   });
 
-  return {posts: postsAndPhotos, postQuantity: postJson.length};
+  return {posts: postsAndPhotos, postQuantity: parseInt(postJson.length)};
 }

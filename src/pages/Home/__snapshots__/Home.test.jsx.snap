@@ -1,0 +1,38 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Home /> render home page 1`] = `
+<div
+  class="container"
+  data-testid="home-page"
+>
+  <div
+    class="container"
+  >
+    <input
+      class="input"
+      placeholder="burcar..."
+      type="search"
+    />
+  </div>
+  <div
+    class="posts"
+  >
+    <div
+      class="no-posts"
+    >
+      No posts... ;(
+    </div>
+  </div>
+  <div
+    class="button-container"
+    style="margin-top: 10px;"
+  >
+    <button
+      class="button"
+      disabled=""
+    >
+      carregar mais posts...
+    </button>
+  </div>
+</div>
+`;
