@@ -28,7 +28,7 @@ describe('<Home />', () => {
   test("handle search", async () => {
     const { container } = await render(<Home />);
     const input = container.querySelector("input");
-    const posts = await screen.findAllByTestId("loaded-post");
+    // const posts = await screen.findAllByTestId("loaded-post");
     userEvent.type(input, "quit");
     const matchedPosts = await screen.findAllByTestId("loaded-post");
 

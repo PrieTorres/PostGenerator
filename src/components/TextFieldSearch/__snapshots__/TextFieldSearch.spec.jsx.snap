@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<TextFieldSearch /> should match snapshot 1`] = `
+<div
+  class="container"
+>
+  <input
+    class="input"
+    placeholder="burcar..."
+    type="search"
+    value="test"
+  />
+</div>
+`;

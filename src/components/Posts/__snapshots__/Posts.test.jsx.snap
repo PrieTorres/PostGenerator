@@ -1,0 +1,171 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Posts /> should match snapshot 1`] = `
+<div
+  class="posts"
+>
+  <div
+    class="post"
+    data-testid="loaded-post"
+  >
+    <img
+      alt="doggo"
+      class="post-image "
+      src="https://images.pexels.com/photos/3090875/pexels-photo-3090875.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800"
+    />
+    <h2
+      class="post-title"
+    >
+      Lorem Ipsum sit amet
+    </h2>
+    <p
+      class="post-text"
+    >
+      Se res de kels evamos mas durn kopa qiue soia postroer di lammet
+    </p>
+  </div>
+  <div
+    class="post"
+    data-testid="loaded-post"
+  >
+    <img
+      alt="doggo"
+      class="post-image "
+      src="https://images.pexels.com/photos/3090875/pexels-photo-3090875.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800"
+    />
+    <h2
+      class="post-title"
+    >
+      Lorem Ipsum sit amet
+    </h2>
+    <p
+      class="post-text"
+    >
+      Se res de kels evamos mas durn kopa qiue soia postroer di lammet
+    </p>
+  </div>
+  <div
+    class="post"
+    data-testid="loaded-post"
+  >
+    <img
+      alt="doggo"
+      class="post-image "
+      src="https://images.pexels.com/photos/3090875/pexels-photo-3090875.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800"
+    />
+    <h2
+      class="post-title"
+    >
+      Lorem Ipsum sit amet
+    </h2>
+    <p
+      class="post-text"
+    >
+      Se res de kels evamos mas durn kopa qiue soia postroer di lammet
+    </p>
+  </div>
+  <div
+    class="post"
+    data-testid="loaded-post"
+  >
+    <img
+      alt="doggo"
+      class="post-image "
+      src="https://images.pexels.com/photos/3090875/pexels-photo-3090875.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800"
+    />
+    <h2
+      class="post-title"
+    >
+      Lorem Ipsum sit amet
+    </h2>
+    <p
+      class="post-text"
+    >
+      Se res de kels evamos mas durn kopa qiue soia postroer di lammet
+    </p>
+  </div>
+  <div
+    class="post"
+    data-testid="loaded-post"
+  >
+    <img
+      alt="doggo"
+      class="post-image "
+      src="https://images.pexels.com/photos/3090875/pexels-photo-3090875.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800"
+    />
+    <h2
+      class="post-title"
+    >
+      Lorem Ipsum sit amet
+    </h2>
+    <p
+      class="post-text"
+    >
+      Se res de kels evamos mas durn kopa qiue soia postroer di lammet
+    </p>
+  </div>
+  <div
+    class="post"
+    data-testid="loaded-post"
+  >
+    <img
+      alt="doggo"
+      class="post-image "
+      src="https://images.pexels.com/photos/3090875/pexels-photo-3090875.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800"
+    />
+    <h2
+      class="post-title"
+    >
+      Lorem Ipsum sit amet
+    </h2>
+    <p
+      class="post-text"
+    >
+      Se res de kels evamos mas durn kopa qiue soia postroer di lammet
+    </p>
+  </div>
+  <div
+    class="post"
+    data-testid="loaded-post"
+  >
+    <img
+      alt="doggo"
+      class="post-image "
+      src="https://images.pexels.com/photos/3090875/pexels-photo-3090875.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800"
+    />
+    <h2
+      class="post-title"
+    >
+      Lorem Ipsum sit amet
+    </h2>
+    <p
+      class="post-text"
+    >
+      Se res de kels evamos mas durn kopa qiue soia postroer di lammet
+    </p>
+  </div>
+  <div
+    class="post"
+    data-testid="loaded-post"
+  >
+    <img
+      alt="doggo"
+      class="post-image "
+      src="https://images.pexels.com/photos/3090875/pexels-photo-3090875.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800"
+    />
+    <h2
+      class="post-title"
+    >
+      Lorem Ipsum sit amet
+    </h2>
+    <p
+      class="post-text"
+    >
+      Se res de kels evamos mas durn kopa qiue soia postroer di lammet
+    </p>
+  </div>
+  <div
+    class="no-posts"
+  />
+</div>
+`;

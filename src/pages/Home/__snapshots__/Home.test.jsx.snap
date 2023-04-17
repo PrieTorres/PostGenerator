@@ -12,6 +12,7 @@ exports[`<Home /> render home page 1`] = `
       class="input"
       placeholder="burcar..."
       type="search"
+      value=""
     />
   </div>
   <div
