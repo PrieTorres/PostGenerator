@@ -1,6 +1,4 @@
-import { render, screen } from '@testing-library/react';
 import { loadPosts } from './load-posts';
-
 
 function checkImageUrl(url) {
   return fetch(url, { method: 'HEAD' })

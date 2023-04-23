@@ -1,16 +1,18 @@
-import { fireEvent, render, screen } from "@testing-library/react";
-import '@testing-library/jest-dom';
-import '@testing-library/jest-dom/extend-expect';
+import { render, screen } from "@testing-library/react";
+import "@testing-library/jest-dom";
+import "@testing-library/jest-dom/extend-expect";
 import { Button } from ".";
 import userEvent from "@testing-library/user-event";
 
-describe('<Button />', () => {
+describe("<Button />", () => {
   describe("render Button element with props", () => {
     test("label prop", () => {
       expect.assertions(2);
 
-      render(<Button label={"carregar mais posts..."} />);
-      const button = screen.getByRole("button", { name: /carregar mais posts.../i });
+      render(<Button onClick={jest.fn()} label={"carregar mais posts..."} />);
+      const button = screen.getByRole("button", {
+        name: /carregar mais posts.../i,
+      });
 
       expect(button).toBeInTheDocument();
       expect(button).toHaveClass("button");
@@ -39,11 +41,10 @@ describe('<Button />', () => {
   });
 
   test("should be enabled when disabled is false", () => {
-    render(<Button label={"load more"} disabled={false} />);
+    render(<Button onClick={jest.fn()} label={"load more"} disabled={false} />);
 
     const button = screen.getByRole("button", { name: /load more/i });
 
     expect(button).toBeEnabled();
   });
-
-})
+});

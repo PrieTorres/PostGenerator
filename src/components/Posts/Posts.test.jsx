@@ -18,8 +18,10 @@ describe("<Posts />", () => {
     expect(renderedPostsByBody).toHaveLength(8);
   });
   it("should return text 'No posts... ;(' when get no data", () => {
-    const {container} = render(<Posts posts={[]} />);
-    const sadFaceTest = container.getElementsByClassName("no-posts").item(0);
+    // const {container} = 
+    render(<Posts posts={[]} />);
+    // const sadFaceTest = container.getElementsByClassName("no-posts").item(0);
+    const sadFaceTest = screen.getByText("No posts... ;(");
 
     expect(sadFaceTest).toBeInTheDocument();
   });

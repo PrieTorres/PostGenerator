@@ -1,7 +1,6 @@
-import { fireEvent, render, screen, waitFor } from "@testing-library/react";
-import '@testing-library/jest-dom';
-import '@testing-library/jest-dom/extend-expect';
-import userEvent from "@testing-library/user-event";
+import { fireEvent, render, screen } from "@testing-library/react";
+import "@testing-library/jest-dom";
+import "@testing-library/jest-dom/extend-expect";
 import { PostCard } from ".";
 import { loadPosts } from "../../utils/load-posts";
 import { mockArrayPosts } from "../../mocks";
@@ -16,7 +15,7 @@ describe("<PostCard />", () => {
 
       render(<PostCard post={postObj} />);
       const post = screen.getByTestId("loaded-post");
-      const img = post.querySelector("img");
+      const img = screen.getByRole("img");
 
       expect(post).toBeInTheDocument();
       expect(img).toHaveAttribute("src", postObj.photo.src.portrait);
@@ -28,16 +27,16 @@ describe("<PostCard />", () => {
     // });
     test("image didn't error", () => {
       render(<PostCard post={mock} />);
-      const post = screen.getByTestId("loaded-post");
-      const img = post.querySelector("img");
+      // const post = screen.getByTestId("loaded-post");
+      const img = screen.getByRole("img");
       const classNamesImg = img.classList;
 
       expect(classNamesImg.contains("error-image")).toBe(false);
     });
-    test("should render another image when image error ", () => {
+    test("should render another image when image error", () => {
       render(<PostCard post={mock} />);
-      const post = screen.getByTestId("loaded-post");
-      const img = post.querySelector("img");
+      // const post = screen.getByTestId("loaded-post");
+      const img = screen.getByRole("img");
 
       fireEvent.error(img);
       const classNamesImg = img.classList;
@@ -45,6 +44,6 @@ describe("<PostCard />", () => {
 
       expect(classNamesImg.contains("error-image")).toBe(true);
       expect(errorImageTratative).toBeInTheDocument();
-    })
+    });
   });
 });

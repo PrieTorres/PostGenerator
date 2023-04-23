@@ -1,12 +1,9 @@
 import { render, screen } from "@testing-library/react"
-import { Posts, TextFieldSearch } from "."
-import { mockArrayPosts } from "../../mocks"
+import { TextFieldSearch } from "."
 import '@testing-library/jest-dom';
 import '@testing-library/jest-dom/extend-expect';
 import userEvent from "@testing-library/user-event";
 
-
-const posts = mockArrayPosts;
 describe("<TextFieldSearch />", () => {
   it("should render with props", () => {
     const fn = jest.fn();

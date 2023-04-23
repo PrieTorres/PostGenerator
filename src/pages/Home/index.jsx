@@ -4,8 +4,11 @@ import { Posts } from "../../components/Posts";
 import { loadPosts } from "../../utils/load-posts";
 import { Button } from "../../components/Button";
 import { TextFieldSearch } from "../../components/TextFieldSearch";
+import P from "prop-types";
 
-export const Home = ({ testPosts = [] }) => { // posts as parameter just for tests
+
+export const Home = ({ testPosts = [] }) => {
+  // posts as parameter just for tests
   const [posts, setPosts] = useState([...testPosts]);
   const [page, setPage] = useState(1);
   const [postQuantity, setPostQuantity] = useState(0);
@@ -16,20 +19,20 @@ export const Home = ({ testPosts = [] }) => { // posts as parameter just for tes
   const noData = page * postsPerPage >= postQuantity;
 
   useEffect(() => {
-    if(!testPosts.length){
+    if (testPosts.length <= 0) {
       handleLoadPosts();
     }
   }, []);
 
   useEffect(() => {
-    if(!testPosts.length){
+    if (testPosts.length <= 0) {
       handleLoadPosts();
     }
     scrollToTop();
-  }, [page])
+  }, [page]);
 
   const handleLoadPosts = async () => {
-    if(!(testPosts.length > 0)) {
+    if (testPosts.length > 0) {
       return;
     }
     const postsAndPhotos = await loadPosts(page, postsPerPage);
@@ -89,3 +92,11 @@ export const Home = ({ testPosts = [] }) => { // posts as parameter just for tes
 };
 
 export default Home;
+
+Home.defaultProps = {
+  testPosts: []
+}
+
+Home.propTypes = {
+  testPosts: P.array
+}
