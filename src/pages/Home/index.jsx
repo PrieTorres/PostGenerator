@@ -5,26 +5,33 @@ import { loadPosts } from "../../utils/load-posts";
 import { Button } from "../../components/Button";
 import { TextFieldSearch } from "../../components/TextFieldSearch";
 
-export const Home = ({}) => {
-  const [posts, setPosts] = useState([]);
+export const Home = ({ testPosts = [] }) => { // posts as parameter just for tests
+  const [posts, setPosts] = useState([...testPosts]);
   const [page, setPage] = useState(1);
-  const [postsPerPage, setPostsPerPage] = useState(8);
   const [postQuantity, setPostQuantity] = useState(0);
   const [searchActive, setSearchActive] = useState(false);
   const [searchValue, setSearchValue] = useState("");
   const [correspondedPosts, setCorrespondedPosts] = useState([]);
+  const postsPerPage = 8;
   const noData = page * postsPerPage >= postQuantity;
 
   useEffect(() => {
-    handleLoadPosts();
+    if(!testPosts.length){
+      handleLoadPosts();
+    }
   }, []);
 
   useEffect(() => {
-    handleLoadPosts();
+    if(!testPosts.length){
+      handleLoadPosts();
+    }
     scrollToTop();
   }, [page])
 
   const handleLoadPosts = async () => {
+    if(!(testPosts.length > 0)) {
+      return;
+    }
     const postsAndPhotos = await loadPosts(page, postsPerPage);
 
     let updatedPostList = [...postsAndPhotos.posts, ...posts];

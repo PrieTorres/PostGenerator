@@ -3,7 +3,7 @@ import '@testing-library/jest-dom';
 import '@testing-library/jest-dom/extend-expect';
 import Home from ".";
 import userEvent from "@testing-library/user-event";
-import { loadPosts } from "../../utils/load-posts";
+import { mockArrayPosts } from "../../mocks";
 
 
 describe('<Home />', () => {
@@ -26,16 +26,17 @@ describe('<Home />', () => {
   });
 
   test("handle search", async () => {
-    const { container } = await render(<Home />);
+    const { container } = await render(<Home testPosts={[...mockArrayPosts]} />);
     const input = container.querySelector("input");
-    // const posts = await screen.findAllByTestId("loaded-post");
-    userEvent.type(input, "quit");
-    const matchedPosts = await screen.findAllByTestId("loaded-post");
+    const posts = await screen.findAllByTestId("loaded-post");
 
-    await waitFor(() => {
-      expect(input).toHaveValue('quit');
-      expect(matchedPosts).toHaveLength(2);
-    })
+    userEvent.type(input, "quit");
+
+    const matchedPosts = await screen.findAllByTestId("loaded-post");
+    const filteredPosts = posts.filter(post => post.innerHTML?.includes("quit"));
+
+    expect(input).toHaveValue('quit');
+    expect(matchedPosts.length).toBe(filteredPosts.length);
   });
 
 

@@ -21,7 +21,7 @@ exports[`<Posts /> should match snapshot 1`] = `
     <p
       class="post-text"
     >
-      Se res de kels evamos mas durn kopa qiue soia postroer di lammet
+      Se res de kels evamos mas durn kopa qiue soia postroer di lammet quit
     </p>
   </div>
   <div
@@ -41,7 +41,7 @@ exports[`<Posts /> should match snapshot 1`] = `
     <p
       class="post-text"
     >
-      Se res de kels evamos mas durn kopa qiue soia postroer di lammet
+      Se res de kels evamos mas durn kopa qiue soia postroer di lammet quit
     </p>
   </div>
   <div

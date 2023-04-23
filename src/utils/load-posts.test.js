@@ -22,7 +22,6 @@ function checkImageUrl(url) {
     });
 }
 
-
 test('getting data posts', () => {
   expect.assertions(1);
   return loadPosts(1, 8).then(data => expect(data.posts.length).toBe(8));

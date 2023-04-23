@@ -1,7 +1,7 @@
 export const mockArrayPosts = [
   {
     title: "Lorem Ipsum sit amet",
-    body: "Se res de kels evamos mas durn kopa qiue soia postroer di lammet",
+    body: "Se res de kels evamos mas durn kopa qiue soia postroer di lammet quit",
     id: 0,
     photo: {
       title: "doggo",
@@ -12,7 +12,7 @@ export const mockArrayPosts = [
   },
   {
     title: "Lorem Ipsum sit amet",
-    body: "Se res de kels evamos mas durn kopa qiue soia postroer di lammet",
+    body: "Se res de kels evamos mas durn kopa qiue soia postroer di lammet quit",
     id: 1,
     photo: {
       title: "doggo",
