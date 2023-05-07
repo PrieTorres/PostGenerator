@@ -26,7 +26,7 @@ describe('<Home />', () => {
   });
 
   test("handle search", async () => {
-    const { container } = await render(<Home testPosts={[...mockArrayPosts]} />);
+    const { container } = render(<Home testPosts={[...mockArrayPosts]} />);
     const input = container.querySelector("input");
     const posts = await screen.findAllByTestId("loaded-post");
 
