@@ -41,6 +41,7 @@
   },
   "devDependencies": {
     "@testing-library/jest-dom": "^5.16.5",
+    "eslint-plugin-prettier": "^4.2.1",
     "msw": "^1.2.1"
   }
 }
