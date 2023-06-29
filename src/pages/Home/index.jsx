@@ -5,6 +5,7 @@ import { loadPosts } from "../../utils/load-posts";
 import { Button } from "../../components/Button";
 import { TextFieldSearch } from "../../components/TextFieldSearch";
 import P from "prop-types";
+import { PostsProvider } from "../../contexts/PostsProvider";
 
 
 export const Home = ({ testPosts = [] }) => {
@@ -77,8 +78,8 @@ export const Home = ({ testPosts = [] }) => {
     setSearchActive(true);
   };
 
-  return (
-    <div className={style.container} data-testid="home-page">
+  /**
+   * <div className={style.container} data-testid="home-page">
       <TextFieldSearch value={searchValue} onChange={handleSearch} />
       <Posts posts={searchActive ? correspondedPosts : posts} />
       <Button
@@ -88,6 +89,14 @@ export const Home = ({ testPosts = [] }) => {
         extraStyles={{ marginTop: "10px" }}
       />
     </div>
+   */
+
+  return (
+    <PostsProvider>
+      <div>
+        oi
+      </div>
+    </PostsProvider>
   );
 };
 
