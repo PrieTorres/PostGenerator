@@ -1,8 +1,8 @@
 export const loadPosts = async (page = 0, postPerPage = 8) => {
-  const postsFetch = fetch("https://jsonplaceholder.typicode.com/posts")
+  const postsFetch = fetch(`https://jsonplaceholder.typicode.com/posts`)
   const imagesFetch = fetch(`https://api.pexels.com/v1/search/?page=${page}&per_page=${postPerPage}&query=dog`, {
     headers: {
-      Authorization: "RZUilClUAopA89M1o2WlLhrzdMdJpbKDPzfWb0AW9IS9hBGyicS8m1kr"
+      Authorization: `RZUilClUAopA89M1o2WlLhrzdMdJpbKDPzfWb0AW9IS9hBGyicS8m1kr`
     }
   })
 

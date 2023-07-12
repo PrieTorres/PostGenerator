@@ -1,16 +1,33 @@
+import { useContext, useEffect } from "react";
 import { PostCard } from "../PostCard";
 import style from "./Posts.module.scss";
 import P from "prop-types";
+import { PostsContext } from "../../contexts/PostsProvider/context";
+import { loadPosts } from "../../contexts/PostsProvider/actions";
 
-export const Posts = ({ posts }) => {
+export const Posts = ({ _posts }) => {
+  const postsContext = useContext(PostsContext);
+  const { postsState, postsDispatch } = postsContext;
+  const { posts } = postsState;
+
+  useEffect(() => {
+    loadPosts(postsDispatch, 8, 10);
+  }, [postsDispatch])
+
+  console.log(postsContext);
+
   return (
     <div className={style.posts}>
-      {posts.map((post, index) => (
+      {postsState.posts.map((post, index) => (
         <PostCard post={post} key={index} />
       ))}
       <div className="no-posts">
-        {!posts || posts.length > 0 ? undefined : "No posts... ;("}
+        {!posts || posts.length > 0 && !postsState.fail ? undefined : `No posts... ;(`}
       </div>
+      {postsState.fail ?
+        <div className="error-message">Não foi possível carregar os posts ;(</div>
+        : undefined
+      }
     </div>
   );
 };

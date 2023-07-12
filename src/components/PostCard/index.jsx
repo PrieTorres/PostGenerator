@@ -10,8 +10,8 @@ export const PostCard = ({ post }) => {
   return (
     <div className={style.post} data-testid="loaded-post">
       <img
-        className={`${style["post-image"]} ${
-          imageNotLoaded ? style["error-image"] : ""
+        className={`${style[`post-image`]} ${
+          imageNotLoaded ? style[`error-image`] : ``
         }`}
         src={post.photo?.src?.portrait}
         alt={post.photo?.title}
@@ -21,16 +21,16 @@ export const PostCard = ({ post }) => {
       />
       {imageNotLoaded ? (
         <div
-          className={`${style["post-image"]} ${style["image-error-div"]}`}
+          className={`${style[`post-image`]} ${style[`image-error-div`]}`}
           data-testid="div-error-image"
         >
           ;(
         </div>
       ) : (
-        ""
+        ``
       )}
-      <h2 className={style["post-title"]}>{post.title}</h2>
-      <p className={style["post-text"]}>{post.body}</p>
+      <h2 className={style[`post-title`]}>{post.title}</h2>
+      <p className={style[`post-text`]}>{post.body}</p>
     </div>
   );
 };

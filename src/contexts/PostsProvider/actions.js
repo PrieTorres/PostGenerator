@@ -1,13 +1,14 @@
 import * as types from './types';
 
 export const loadPosts = async (dispatch, page = 0, postPerPage = 10) => {
-  const postsFetch = fetch('https://jsonplaceholder.typicode.com/posts');
+  dispatch({ type: types.POSTS_LOADING });
+  const postsFetch = fetch(`https://jsonplaceholder.typicode.com/posts`);
   const imagesFetch = fetch(
     `https://api.pexels.com/v1/search/?page=${page}&per_page=${postPerPage}&query=dog`,
     {
       headers: {
         Authorization:
-          'RZUilClUAopA89M1o2WlLhrzdMdJpbKDPzfWb0AW9IS9hBGyicS8m1kr',
+          `RZUilClUAopA89M1o2WlLhrzdMdJpbKDPzfWb0AW9IS9hBGyicS8m1kr`,
       },
     },
   );
@@ -29,4 +30,5 @@ export const loadPosts = async (dispatch, page = 0, postPerPage = 10) => {
   };
 
   dispatch({ type: types.POSTS_SUCCESS, payload: data });
+  if(!data || !data?.posts?.length) dispatch({ type: types.POSTS_FAILED });
 };

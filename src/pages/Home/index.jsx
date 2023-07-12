@@ -14,7 +14,7 @@ export const Home = ({ testPosts = [] }) => {
   const [page, setPage] = useState(1);
   const [postQuantity, setPostQuantity] = useState(0);
   const [searchActive, setSearchActive] = useState(false);
-  const [searchValue, setSearchValue] = useState("");
+  const [searchValue, setSearchValue] = useState(``);
   const [correspondedPosts, setCorrespondedPosts] = useState([]);
   const postsPerPage = 8;
   const noData = page * postsPerPage >= postQuantity;
@@ -53,7 +53,7 @@ export const Home = ({ testPosts = [] }) => {
   };
 
   const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
+    window.scrollTo({ top: 0, behavior: `smooth` });
   };
 
   const handleSearch = (e) => {
@@ -93,9 +93,16 @@ export const Home = ({ testPosts = [] }) => {
 
   return (
     <PostsProvider>
-      <div>
-        oi
-      </div>
+      <div className={style.container} data-testid="home-page">
+      <TextFieldSearch value={searchValue} onChange={handleSearch} />
+      <Posts searchActive={searchActive} correspondedPosts={correspondedPosts} />
+      <Button
+        disabled={noData}
+        label={`carregar mais posts...`}
+        onClick={loadMorePosts}
+        extraStyles={{ marginTop: `10px` }}
+      />
+    </div>
     </PostsProvider>
   );
 };

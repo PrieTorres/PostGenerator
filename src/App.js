@@ -1,12 +1,12 @@
-import { Component } from 'react';
-import Home from './pages/Home';
+import { Component } from "react";
+import Home from "./pages/Home";
 
 class App extends Component {
 
   render() {
 
     return (
-      <div className='app'>
+      <div className="app">
         <Home />
       </div>
     )

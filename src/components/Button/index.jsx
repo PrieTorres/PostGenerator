@@ -9,7 +9,7 @@ export const Button = ({
 }) => {
   return (
     <div
-      className={style["button-container"]}
+      className={style[`button-container`]}
       onClick={onClick}
       style={{ ...extraStyles }}
     >
